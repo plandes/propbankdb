@@ -1,5 +1,6 @@
 # utility
 lxml~=4.9.3
+Penman~=1.3.0
 
 # zensols framework
 zensols.db~=1.3.1
