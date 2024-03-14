@@ -1,0 +1,104 @@
+# description: config to deploy the distribution binaries; this is only used
+# for creating the distrbution file, which has the 
+
+deepnlp_default:
+  transformer_local_files_only: true
+  wordpiece_embedding: transformer_sent_fixed
+
+propbankdb_default:
+  stage_dir: '${default:data_dir}/stage/${propbankdb_default:dist_file_name}'
+  embedding_text_dir: '${propbankdb_default:stage_dir}'
+  embedding_doc_parser: 'doc_parser'
+
+# disable loading the distribution file this resource library is used to create
+# locally, then deploy
+pbdb_sqlite_conn_manager:
+  db_file: 'path: ${propbankdb_default:stage_dir}/propbankdb.sqlite3'
+  installer: null
+
+# override to avoid invoking trying to add embeddings while generating the
+# embeddings
+pbdb_roleset_persister:
+  populators: []
+
+pbdb_relation_persister:
+  populators: []
+
+
+## Dataset install
+#
+pbdb_frames_resource:
+  class_name: zensols.install.Resource
+  #url: 'https://github.com/propbank/propbank-frames/archive/refs/heads/main.zip'
+  url: 'https://github.com/plandes/propbank-frames/archive/refs/heads/main.zip'
+  remote_name: 'propbank-frames-main'
+  name: 'propbankdb'
+
+pbdb_frames_installer:
+  class_name: zensols.install.Installer
+  base_directory: 'path: ${default:data_dir}'
+  resources: 'instance: list: pbdb_frames_resource'
+
+
+## Relations
+#
+pbdb_relation_loader:
+  class_name: zensols.propbankdb.load.RelationLoader
+  description_mods:
+    - ['^ARG.*', 'argument']
+    - ['^ord.*', 'ordinal']
+    - ['^snt.*', 'sentence']
+    - ['^op.*', 'operand']
+    - ['^cause', 'cause, because, because of']
+    - ['^concession', 'concession: what substance or which members something is made of']
+    - ['^year\d+', 'year']
+    - ['^domain', 'domain: when there is no frame for that noun']
+    - ['^employed-by', 'express an organizational role relation when no verb frame is available']
+    - ['^instrument', 'instrument: physical object used in an action']
+    - ['^li.*', 'list item']
+    - ['^manner', 'manner: how something is done, method of how something is done, or mode of transportation']
+    - ['^mode', 'mode: imperative, experssion, question']
+    - ['^part', 'part: physical part of an object, component of organization, country, geography region']
+    - ['^polarity', 'polarity: yes-no question, negation, not, no, never, unless']
+    - ['^poss', 'possessive']
+    - ['^quant', 'quantity']
+    - ['^dayperiod', 'period of a day during']
+
+
+## DB loader
+#
+pbdb_parser:
+  class_name: zensols.propbankdb.load.FramesetParser
+  installer: 'instance: pbdb_frames_installer'
+  function_path: 'resource(zensols.propbankdb): resources/function.csv'
+  frames_dir: 'path: frames'
+
+pbdb_db_loader:
+  class_name: zensols.propbankdb.load.DatabaseLoader
+  parser: 'instance: pbdb_parser'
+  relation_loader: 'instance: pbdb_relation_loader'
+  db: 'instance: pbdb_db'
+
+
+## Embedding
+#
+transformer_sent_fixed_resource:
+  model_id: sentence-transformers/all-mpnet-base-v2
+  #model_id: sentence-transformers/all-MiniLM-L6-v2
+
+pbdb_embedding_generator:
+  class_name: zensols.propbankdb.embedgen.EmbeddingGenerator
+  doc_parser: 'instance: ${propbankdb_default:embedding_doc_parser}'
+  wordpiece_doc_factory: 'instance: word_piece_doc_factory'
+  populator: 'instance: pbdb_embedding_populator'
+  db: 'instance: pbdb_db'
+  output_decimals: 6
+  output_dir: 'path: ${propbankdb_default:embedding_text_dir}'
+
+
+## Packaging
+#
+pbdb_packager:
+  class_name: zensols.propbankdb.pack.Packager
+  stage_dir: "eval: Path('${propbankdb_default:stage_dir}/..').resolve()"
+  archive_dir: 'path: ${default:data_dir}/arch/${propbankdb_default:dist_file_name}'
