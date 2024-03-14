@@ -80,7 +80,7 @@ $ propbankdb --help
 
 For example, to get the `see.01` role set in JSON format use:
 ```bash
-$ propbankdb roleset see.01
+$ propbankdb roleset -f json see.01
 ```
 
 ### API
