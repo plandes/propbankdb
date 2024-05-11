@@ -1,0 +1,30 @@
+<map id="inheritancee1ee4558a7" name="inheritancee1ee4558a7">
+<area shape="rect" id="node1" title="Helper class that provides a standard way to create an ABC using" alt="" coords="340,3,379,19"/>
+<area shape="rect" id="node10" href="#zensols.propbankdb.domain.BankObjectPopulator" target="_top" title="BankObjectPopulator()" alt="" coords="208,45,311,61"/>
+<area shape="rect" id="node12" title="All subclasses have the ability to deallocate any resources. &#160;This is" alt="" coords="325,45,394,61"/>
+<area shape="rect" id="node13" title="An interface for classes that have multi&#45;line debuging capability." alt="" coords="415,45,462,61"/>
+<area shape="rect" id="node2" title="Base exception from which almost all library raised errors extend." alt="" coords="550,3,599,19"/>
+<area shape="rect" id="node3" title="Thrown for all command line interface errors." alt="" coords="495,45,566,61"/>
+<area shape="rect" id="node11" href="#zensols.propbankdb.domain.BankParseError" target="_top" title="Raised for this package&#39;s programmatic errors." alt="" coords="579,45,659,61"/>
+<area shape="rect" id="node6" title="Thrown for any application error that should result in a user error" alt="" coords="490,87,570,103"/>
+<area shape="rect" id="node4" href="#zensols.propbankdb.domain.Alias" target="_top" title="Surface forms of the :obj:`.Roleset.lemma` and their part of speech." alt="" coords="3,171,41,187"/>
+<area shape="rect" id="node5" href="#zensols.propbankdb.domain.BankObject" target="_top" title="A base class for all ``*bank`` domain classes." alt="" coords="405,129,467,145"/>
+<area shape="rect" id="node15" href="#zensols.propbankdb.domain.Example" target="_top" title="Examples of the usage of the :class:`.Roleset`." alt="" coords="54,171,104,187"/>
+<area shape="rect" id="node16" href="#zensols.propbankdb.domain.Frameset" target="_top" title="Contains all the :class:`.Predicate` definitions from an file." alt="" coords="117,171,169,187"/>
+<area shape="rect" id="node17" href="#zensols.propbankdb.domain.Function" target="_top" title="The role function of the role, such as ``PAG`` for ``prototypical" alt="" coords="182,171,231,187"/>
+<area shape="rect" id="node19" href="#zensols.propbankdb.domain.Predicate" target="_top" title="Contains the role sets for a lemmatized word." alt="" coords="243,171,296,187"/>
+<area shape="rect" id="node20" href="#zensols.propbankdb.domain.PropBank" target="_top" title="The PropBank annotations for the :class:`.Example`, which include token" alt="" coords="309,171,363,187"/>
+<area shape="rect" id="node21" href="#zensols.propbankdb.domain.PropBankArgumentSpan" target="_top" title="An argument span used in a :class:`.PropBank`." alt="" coords="376,171,495,187"/>
+<area shape="rect" id="node22" href="#zensols.propbankdb.domain.Reification" target="_top" title="Reifications are a particular kind of transformation that replaces an" alt="" coords="508,171,565,187"/>
+<area shape="rect" id="node23" href="#zensols.propbankdb.domain.Relation" target="_top" title="Represents an AMR relation, which is a label on the edge an an AMR graph" alt="" coords="578,171,625,187"/>
+<area shape="rect" id="node24" href="#zensols.propbankdb.domain.Role" target="_top" title="Defines an argument of the propbank role, which in AMR, has the syntax" alt="" coords="638,171,676,187"/>
+<area shape="rect" id="node25" href="#zensols.propbankdb.domain.RoleLink" target="_top" title="Contains links in to other source banks." alt="" coords="689,171,738,187"/>
+<area shape="rect" id="node27" href="#zensols.propbankdb.domain.Roleset" target="_top" title="A bank role set entry that contains a grouping of :class:`.Role`s." alt="" coords="752,171,796,187"/>
+<area shape="rect" id="node28" href="#zensols.propbankdb.domain.RolesetId" target="_top" title="A role set identifier identifier such as ``see.01`` or ``see&#45;01``. &#160;Note" alt="" coords="808,171,861,187"/>
+<area shape="rect" id="node7" href="#zensols.propbankdb.domain.BankError" target="_top" title="Raised for this package&#39;s application errors meant for the command line." alt="" coords="503,129,558,145"/>
+<area shape="rect" id="node8" title="Classes can extend this that want to persist :class:`.PersistedWork`" alt="" coords="305,87,406,103"/>
+<area shape="rect" id="node9" title="A class that that generates a dictionary recursively from data classes" alt="" coords="419,87,465,103"/>
+<area shape="rect" id="node14" title="Create a collection of name/value pairs." alt="" coords="757,3,795,19"/>
+<area shape="rect" id="node18" href="#zensols.propbankdb.domain.PartOfSpeech" target="_top" title="The part of speech identifier in aliases." alt="" coords="697,45,769,61"/>
+<area shape="rect" id="node26" href="#zensols.propbankdb.domain.RoleResource" target="_top" title="The source *bank* of the role. &#160;This has the XML attribute ``resource``." alt="" coords="782,45,855,61"/>
+</map>

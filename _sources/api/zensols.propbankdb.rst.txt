@@ -1,0 +1,103 @@
+zensols.propbankdb package
+==========================
+
+Submodules
+----------
+
+zensols.propbankdb.app
+----------------------
+.. inheritance-diagram:: zensols.propbankdb.app
+   :parts: 1
+
+.. automodule:: zensols.propbankdb.app
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+zensols.propbankdb.cli
+----------------------
+.. inheritance-diagram:: zensols.propbankdb.cli
+   :parts: 1
+
+.. automodule:: zensols.propbankdb.cli
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+zensols.propbankdb.dapp
+-----------------------
+.. inheritance-diagram:: zensols.propbankdb.dapp
+   :parts: 1
+
+.. automodule:: zensols.propbankdb.dapp
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+zensols.propbankdb.db
+---------------------
+.. inheritance-diagram:: zensols.propbankdb.db
+   :parts: 1
+
+.. automodule:: zensols.propbankdb.db
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+zensols.propbankdb.domain
+-------------------------
+.. inheritance-diagram:: zensols.propbankdb.domain
+   :parts: 1
+
+.. automodule:: zensols.propbankdb.domain
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+zensols.propbankdb.embedgen
+---------------------------
+.. inheritance-diagram:: zensols.propbankdb.embedgen
+   :parts: 1
+
+.. automodule:: zensols.propbankdb.embedgen
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+zensols.propbankdb.embedpop
+---------------------------
+.. inheritance-diagram:: zensols.propbankdb.embedpop
+   :parts: 1
+
+.. automodule:: zensols.propbankdb.embedpop
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+zensols.propbankdb.load
+-----------------------
+.. inheritance-diagram:: zensols.propbankdb.load
+   :parts: 1
+
+.. automodule:: zensols.propbankdb.load
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+zensols.propbankdb.pack
+-----------------------
+.. inheritance-diagram:: zensols.propbankdb.pack
+   :parts: 1
+
+.. automodule:: zensols.propbankdb.pack
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: zensols.propbankdb
+   :members:
+   :undoc-members:
+   :show-inheritance:

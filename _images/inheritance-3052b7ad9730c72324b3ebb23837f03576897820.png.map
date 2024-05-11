@@ -1,0 +1,6 @@
+<map id="inheritance14a2f678ca" name="inheritance14a2f678ca">
+<area shape="rect" id="node1" title="Helper class that provides a standard way to create an ABC using" alt="" coords="112,5,184,36"/>
+<area shape="rect" id="node2" href="#zensols.propbankdb.domain.BankObjectPopulator" target="_top" title="BankObjectPopulator()" alt="" coords="51,84,245,115"/>
+<area shape="rect" id="node3" href="#zensols.propbankdb.embedpop.EmbeddingBankObjectPopulator" target="_top" title="EmbeddingBankObjectPopulator(embed_populator: zensols.propbankdb.embedpop.EmbeddingPopulator)" alt="" coords="5,163,291,193"/>
+<area shape="rect" id="node4" href="#zensols.propbankdb.embedpop.EmbeddingPopulator" target="_top" title="Adds embeddings to certains :class:`.BankObject` instances (see module" alt="" coords="433,5,623,36"/>
+</map>

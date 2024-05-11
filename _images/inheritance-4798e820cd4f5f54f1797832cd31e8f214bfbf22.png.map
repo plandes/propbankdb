@@ -1,0 +1,5 @@
+<map id="inheritancef9a712d2f0" name="inheritancef9a712d2f0">
+<area shape="rect" id="node1" href="#zensols.propbankdb.load.DatabaseLoader" target="_top" title="Loads the parsed frameset XML files in to an SQLite database." alt="" coords="5,5,160,36"/>
+<area shape="rect" id="node2" href="#zensols.propbankdb.load.FramesetParser" target="_top" title="Parses all frameset XML files on the file system." alt="" coords="269,5,421,36"/>
+<area shape="rect" id="node3" href="#zensols.propbankdb.load.RelationLoader" target="_top" title="Loads relations from the :mod:`penman` package." alt="" coords="488,5,632,36"/>
+</map>
