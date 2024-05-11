@@ -51,7 +51,7 @@ class EmbeddingGenerator(object):
     doc_parser: FeatureDocumentParser = field()
     """The used for parsing the English in the Framenets."""
 
-    wordpiece_doc_factory: WordPieceFeatureDocumentFactory = field()
+    word_piece_doc_factory: WordPieceFeatureDocumentFactory = field()
     """Used to create the embeddings from the language in the Framenets."""
 
     populator: EmbeddingPopulator = field()
@@ -71,7 +71,7 @@ class EmbeddingGenerator(object):
 
     def _embed(self, text: str) -> Tuple[FeatureDocument, Tensor]:
         doc: FeatureDocument = self.doc_parser(text)
-        wpdoc: WordPieceFeatureDocument = self.wordpiece_doc_factory(doc)
+        wpdoc: WordPieceFeatureDocument = self.word_piece_doc_factory(doc)
         embs: Tensor = wpdoc.embedding
         emb: Tensor = embs.mean(dim=0)
         return wpdoc, emb
@@ -154,7 +154,7 @@ class EmbeddingGenerator(object):
 
     def dump(self):
         """Write the embeddings in text format to disk."""
-        emb: TransformerEmbedding = self.wordpiece_doc_factory.embed_model
+        emb: TransformerEmbedding = self.word_piece_doc_factory.embed_model
         res: TransformerResource = emb.resource
         model_id: str = res.model_id
         dim: int = self.vector_dimension
@@ -183,7 +183,7 @@ class EmbeddingGenerator(object):
         for func in self.db.function_persister.get():
             key = self.populator.function_to_key(func)
             doc: FeatureDocument = self.doc_parser(func.description)
-            wpdoc: WordPieceFeatureDocument = self.wordpiece_doc_factory(doc)
+            wpdoc: WordPieceFeatureDocument = self.word_piece_doc_factory(doc)
             print(key, func.description, func.has_description, '||',
                   wpdoc[0], wpdoc.unknown_count)
             if wpdoc.unknown_count > 0:
@@ -194,7 +194,7 @@ class EmbeddingGenerator(object):
         for rel in self.db.relation_persister.get():
             key = self.populator.relation_to_key(rel)
             doc: FeatureDocument = self.doc_parser(rel.description)
-            wpdoc: WordPieceFeatureDocument = self.wordpiece_doc_factory(doc)
+            wpdoc: WordPieceFeatureDocument = self.word_piece_doc_factory(doc)
             print(key, rel.description, '||', wpdoc[0], wpdoc.unknown_count)
             if wpdoc.unknown_count > 0:
                 wpdoc.write()

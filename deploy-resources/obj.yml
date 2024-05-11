@@ -3,7 +3,7 @@
 
 deepnlp_default:
   transformer_local_files_only: true
-  wordpiece_embedding: transformer_sent_fixed
+  word_piece_embedding: transformer_sent_fixed
 
 propbankdb_default:
   stage_dir: '${default:data_dir}/stage/${propbankdb_default:dist_file_name}'
@@ -89,7 +89,7 @@ transformer_sent_fixed_resource:
 pbdb_embedding_generator:
   class_name: zensols.propbankdb.embedgen.EmbeddingGenerator
   doc_parser: 'instance: ${propbankdb_default:embedding_doc_parser}'
-  wordpiece_doc_factory: 'instance: word_piece_doc_factory'
+  word_piece_doc_factory: 'instance: word_piece_doc_factory'
   populator: 'instance: pbdb_embedding_populator'
   db: 'instance: pbdb_db'
   output_decimals: 6
