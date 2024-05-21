@@ -96,12 +96,12 @@ class EmbeddingGenerator(object):
         func: Function
         for func in self.db.function_persister.get():
             if func.has_description:
-                yield(self.populator.function_to_key(func), func.description)
+                yield (self.populator.function_to_key(func), func.description)
 
     def _get_relation_sentences(self) -> Iterable[Tuple[str, str]]:
         rel: Relation
         for rel in self.db.relation_persister.get():
-            yield(self.populator.relation_to_key(rel), rel.description)
+            yield (self.populator.relation_to_key(rel), rel.description)
 
     def _get_roleset_sentences(self) -> Iterable[Tuple[str, str]]:
         """Create the key/sentence pairs."""
