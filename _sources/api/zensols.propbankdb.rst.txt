@@ -1,0 +1,85 @@
+zensols.propbankdb package
+==========================
+
+Submodules
+----------
+
+zensols.propbankdb.app module
+-----------------------------
+
+.. automodule:: zensols.propbankdb.app
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+zensols.propbankdb.cli module
+-----------------------------
+
+.. automodule:: zensols.propbankdb.cli
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+zensols.propbankdb.dapp module
+------------------------------
+
+.. automodule:: zensols.propbankdb.dapp
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+zensols.propbankdb.db module
+----------------------------
+
+.. automodule:: zensols.propbankdb.db
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+zensols.propbankdb.domain module
+--------------------------------
+
+.. automodule:: zensols.propbankdb.domain
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+zensols.propbankdb.embedgen module
+----------------------------------
+
+.. automodule:: zensols.propbankdb.embedgen
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+zensols.propbankdb.embedpop module
+----------------------------------
+
+.. automodule:: zensols.propbankdb.embedpop
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+zensols.propbankdb.load module
+------------------------------
+
+.. automodule:: zensols.propbankdb.load
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+zensols.propbankdb.pack module
+------------------------------
+
+.. automodule:: zensols.propbankdb.pack
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: zensols.propbankdb
+   :members:
+   :undoc-members:
+   :show-inheritance:
