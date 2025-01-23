@@ -35,7 +35,7 @@ class LoadApplication(object):
     def _load(self, frameset_limit: int = None):
         """Load the SQLite database from the Frameset XML files.
 
-        :param frameset_limit: the max number of framesetes to load
+        :param frameset_limit: the max number of framesets to load
 
         """
         self.loader.frameset_limit = frameset_limit
@@ -45,7 +45,7 @@ class LoadApplication(object):
     def package(self, frameset_limit: int = None):
         """(Re)create the deployment artifacts and distribution file.
 
-        :param frameset_limit: the max number of framesetes to load
+        :param frameset_limit: the max number of framesets to load
 
         """
         self.cleaner()
