@@ -12,6 +12,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 - Support for Python 3.10.
 
+### Changed
+- Upgrade [zensols.deepnlp] to 1.17.0.
+
 
 ## [0.1.0] - 2024-05-11
 ### Changed
