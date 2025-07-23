@@ -5,7 +5,7 @@
 #
 pbdb_frames_dist_resource:
   class_name: zensols.install.Resource
-  url: 'https://zenodo.org/records/16279828/files/${propbankdb_default:dist_file_name}.zip'
+  url:  'https://zenodo.org/records/10806450/files/${propbankdb_default:dist_file_name}.zip'
   name: v${propbankdb_default:version}
 
 pbdb_frames_dist_installer:
