@@ -5,13 +5,12 @@
 #
 PROJ_TYPE =		python
 PROJ_MODULES =		python/doc python/package python/deploy
-INFO_TARGETS +=		appinfo
 CLEAN_ALL_DEPS +=	distclean
 
 
 ## Project
 #
-DIST_ENTRY =		./dist.py
+DIST_BIN ?=		./dist.py
 
 
 ## Includes
@@ -20,18 +19,16 @@ include ./zenbuild/main.mk
 
 
 ## Target
-##
-.PHONY:			appinfo
-appinfo:
-			@echo "app-resources-dir: $(RESOURCES_DIR)"
-
+#
 # create the distribution model and probank database
 .PHONY:			dist
 dist:
-			$(DIST_ENTRY) clean
-			$(DIST_ENTRY) package
+			@$(MAKE) $(PY_MAKE_ARGS) distclean
+			@$(MAKE) $(PY_MAKE_ARGS) pyharn \
+				PY_HARNESS_BIN=$(DIST_BIN) ARG=package
 
 # remove derived objects
 .PHONY:			distclean
 distclean:
-			$(DIST_ENTRY) clean
+			@$(MAKE) $(PY_MAKE_ARGS) pyharn \
+				PY_HARNESS_BIN=$(DIST_BIN) ARG=clean
