@@ -4,9 +4,8 @@
 ## Build sytem
 #
 PROJ_TYPE =		python
-PROJ_MODULES =		git python-resources python-cli python-doc python-doc-deploy markdown
+PROJ_MODULES =		python/doc python/package python/deploy
 INFO_TARGETS +=		appinfo
-CLEAN_DEPS +=		pycleancache
 CLEAN_ALL_DEPS +=	distclean
 
 

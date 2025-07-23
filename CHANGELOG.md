@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 
 
+### Changed
+- Switch build tools to [pixi].
+- Upgraded dependencies:
+  - [zensols.deepnlp] 1.18.0
+
+
 ## [0.2.0] - 2025-01-22
 ### Removed
 - Support for Python 3.10.
@@ -39,3 +45,4 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 [0.0.1]: https://github.com/plandes/propbankdb/compare/v0.0.0...v0.0.1
 
 [zensols.deepnlp]: https://github.com/plandes/deepnlp
+[pixi]: https://pixi.sh
