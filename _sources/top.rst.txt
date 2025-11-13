@@ -1,0 +1,20 @@
+Access PropBank database and generate embeddings from them
+==========================================================
+An API to access PropBank data and generate embeddings from the paper \"CALAMR: Component ALignment for Abstract Meaning Representation\".
+
+.. toctree::
+   :maxdepth: 3
+   :glob:
+
+   Overview <index.md>
+   doc/*
+   API Reference <api.rst>
+   Contributing <CONTRIBUTING.md>
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

@@ -1,0 +1,1147 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="#" /><link rel="search" title="Search" href="search.html" />
+
+    <!-- Generated with Sphinx 7.4.7 and Furo 2024.08.06 --><title>Index - Access PropBank database and generate embeddings from them 0.2.1 documentation</title>
+<link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=302659d7" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="top.html"><div class="brand">Access PropBank database and generate embeddings from them 0.2.1 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="top.html">
+  
+  
+  <span class="sidebar-brand-text">Access PropBank database and generate embeddings from them 0.2.1 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Overview</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="api.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of API Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/zensols.propbankdb.html">zensols.propbankdb package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="CONTRIBUTING.html">Contributing</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          
+<section class="genindex-section">
+  <h1 id="index">Index</h1>
+  <div class="genindex-jumpbox"><a href="#_"><strong>_</strong></a> | <a href="#A"><strong>A</strong></a> | <a href="#B"><strong>B</strong></a> | <a href="#C"><strong>C</strong></a> | <a href="#D"><strong>D</strong></a> | <a href="#E"><strong>E</strong></a> | <a href="#F"><strong>F</strong></a> | <a href="#G"><strong>G</strong></a> | <a href="#H"><strong>H</strong></a> | <a href="#I"><strong>I</strong></a> | <a href="#J"><strong>J</strong></a> | <a href="#L"><strong>L</strong></a> | <a href="#M"><strong>M</strong></a> | <a href="#N"><strong>N</strong></a> | <a href="#O"><strong>O</strong></a> | <a href="#P"><strong>P</strong></a> | <a href="#R"><strong>R</strong></a> | <a href="#S"><strong>S</strong></a> | <a href="#T"><strong>T</strong></a> | <a href="#U"><strong>U</strong></a> | <a href="#V"><strong>V</strong></a> | <a href="#W"><strong>W</strong></a> | <a href="#X"><strong>X</strong></a> | <a href="#Z"><strong>Z</strong></a></div>
+</section>
+<section id="_" class="genindex-section">
+  <h2>_</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.BankParseError.__annotations__">__annotations__ (zensols.propbankdb.domain.BankParseError attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.app.Application.__init__">__init__() (zensols.propbankdb.app.Application method)</a>
+
+        <ul>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.cli.ApplicationFactory.__init__">(zensols.propbankdb.cli.ApplicationFactory method)</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.dapp.LoadApplication.__init__">(zensols.propbankdb.dapp.LoadApplication method)</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.AliasPersister.__init__">(zensols.propbankdb.db.AliasPersister method)</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.BankObjectPersister.__init__">(zensols.propbankdb.db.BankObjectPersister method)</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.Database.__init__">(zensols.propbankdb.db.Database method)</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.ExamplePersister.__init__">(zensols.propbankdb.db.ExamplePersister method)</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.FramesetPersister.__init__">(zensols.propbankdb.db.FramesetPersister method)</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.FunctionPersister.__init__">(zensols.propbankdb.db.FunctionPersister method)</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.InstallerConnectionManager.__init__">(zensols.propbankdb.db.InstallerConnectionManager method)</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.PredicatePersister.__init__">(zensols.propbankdb.db.PredicatePersister method)</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.RelationPersister.__init__">(zensols.propbankdb.db.RelationPersister method)</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.RoleLinkPersister.__init__">(zensols.propbankdb.db.RoleLinkPersister method)</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.RolePersister.__init__">(zensols.propbankdb.db.RolePersister method)</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.RolesetPersister.__init__">(zensols.propbankdb.db.RolesetPersister method)</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Alias.__init__">(zensols.propbankdb.domain.Alias method)</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.BankObject.__init__">(zensols.propbankdb.domain.BankObject method)</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.BankObjectPopulator.__init__">(zensols.propbankdb.domain.BankObjectPopulator method)</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Example.__init__">(zensols.propbankdb.domain.Example method)</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Frameset.__init__">(zensols.propbankdb.domain.Frameset method)</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Function.__init__">(zensols.propbankdb.domain.Function method)</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Predicate.__init__">(zensols.propbankdb.domain.Predicate method)</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.PropBank.__init__">(zensols.propbankdb.domain.PropBank method)</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.PropBankArgumentSpan.__init__">(zensols.propbankdb.domain.PropBankArgumentSpan method)</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Reification.__init__">(zensols.propbankdb.domain.Reification method)</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Relation.__init__">(zensols.propbankdb.domain.Relation method)</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Role.__init__">(zensols.propbankdb.domain.Role method)</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.RoleLink.__init__">(zensols.propbankdb.domain.RoleLink method)</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Roleset.__init__">(zensols.propbankdb.domain.Roleset method)</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.RolesetId.__init__">(zensols.propbankdb.domain.RolesetId method)</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.embedgen.EmbeddingGenerator.__init__">(zensols.propbankdb.embedgen.EmbeddingGenerator method)</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.embedpop.EmbeddingBankObjectPopulator.__init__">(zensols.propbankdb.embedpop.EmbeddingBankObjectPopulator method)</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.embedpop.EmbeddingPopulator.__init__">(zensols.propbankdb.embedpop.EmbeddingPopulator method)</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.load.DatabaseLoader.__init__">(zensols.propbankdb.load.DatabaseLoader method)</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.load.FramesetParser.__init__">(zensols.propbankdb.load.FramesetParser method)</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.load.RelationLoader.__init__">(zensols.propbankdb.load.RelationLoader method)</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.pack.Packager.__init__">(zensols.propbankdb.pack.Packager method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.BankError.__module__">__module__ (zensols.propbankdb.domain.BankError attribute)</a>
+
+        <ul>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.BankParseError.__module__">(zensols.propbankdb.domain.BankParseError attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="A" class="genindex-section">
+  <h2>A</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.BankObjectPersister.add_populator">add_populator() (zensols.propbankdb.db.BankObjectPersister method)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.PartOfSpeech.adjective">adjective (zensols.propbankdb.domain.PartOfSpeech attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.PartOfSpeech.adverb">adverb (zensols.propbankdb.domain.PartOfSpeech attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Alias">Alias (class in zensols.propbankdb.domain)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.Database.alias_persister">alias_persister (zensols.propbankdb.db.Database attribute)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Roleset.aliases">aliases (zensols.propbankdb.domain.Roleset attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.AliasPersister">AliasPersister (class in zensols.propbankdb.db)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.app.Application">Application (class in zensols.propbankdb.app)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.cli.ApplicationFactory">ApplicationFactory (class in zensols.propbankdb.cli)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.pack.Packager.archive_dir">archive_dir (zensols.propbankdb.pack.Packager attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.PropBank.argument_spans">argument_spans (zensols.propbankdb.domain.PropBank attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="B" class="genindex-section">
+  <h2>B</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.BankError">BankError</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.BankObject">BankObject (class in zensols.propbankdb.domain)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.BankObjectPersister">BankObjectPersister (class in zensols.propbankdb.db)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.BankObjectPopulator">BankObjectPopulator (class in zensols.propbankdb.domain)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.BankParseError">BankParseError</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="C" class="genindex-section">
+  <h2>C</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.dapp.LoadApplication.cleaner">cleaner (zensols.propbankdb.dapp.LoadApplication attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.load.DatabaseLoader.clear">clear() (zensols.propbankdb.load.DatabaseLoader method)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.RoleLink.cls">cls (zensols.propbankdb.domain.RoleLink attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Reification.concept">concept (zensols.propbankdb.domain.Reification attribute)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.embedgen.EmbeddingGenerator.config">config (zensols.propbankdb.embedgen.EmbeddingGenerator attribute)</a>
+
+        <ul>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.embedpop.EmbeddingPopulator.config">(zensols.propbankdb.embedpop.EmbeddingPopulator attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.app.Application.config_factory">config_factory (zensols.propbankdb.app.Application attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.Database.conn_manager">conn_manager (zensols.propbankdb.db.Database attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="D" class="genindex-section">
+  <h2>D</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.Database">Database (class in zensols.propbankdb.db)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.load.DatabaseLoader">DatabaseLoader (class in zensols.propbankdb.load)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.app.Application.db">db (zensols.propbankdb.app.Application attribute)</a>
+
+        <ul>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.embedgen.EmbeddingGenerator.db">(zensols.propbankdb.embedgen.EmbeddingGenerator attribute)</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.load.DatabaseLoader.db">(zensols.propbankdb.load.DatabaseLoader attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.embedpop.EmbeddingPopulator.DEFAULT_SECTION">DEFAULT_SECTION (zensols.propbankdb.embedpop.EmbeddingPopulator attribute)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Function.description">description (zensols.propbankdb.domain.Function attribute)</a>
+
+        <ul>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Relation.description">(zensols.propbankdb.domain.Relation attribute)</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Role.description">(zensols.propbankdb.domain.Role attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.load.RelationLoader.description_mods">description_mods (zensols.propbankdb.load.RelationLoader attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.embedgen.EmbeddingGenerator.doc_parser">doc_parser (zensols.propbankdb.embedgen.EmbeddingGenerator attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.embedgen.EmbeddingGenerator.dump">dump() (zensols.propbankdb.embedgen.EmbeddingGenerator method)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="E" class="genindex-section">
+  <h2>E</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.embedpop.EmbeddingPopulator.embed_model">embed_model (zensols.propbankdb.embedpop.EmbeddingPopulator attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.embedpop.EmbeddingBankObjectPopulator.embed_populator">embed_populator (zensols.propbankdb.embedpop.EmbeddingBankObjectPopulator attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.BankObject.embedding">embedding (zensols.propbankdb.domain.BankObject property)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.dapp.LoadApplication.embedding_generator">embedding_generator (zensols.propbankdb.dapp.LoadApplication attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.embedpop.EmbeddingPopulator.EMBEDDING_SECTION">EMBEDDING_SECTION (zensols.propbankdb.embedpop.EmbeddingPopulator attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.embedpop.EmbeddingBankObjectPopulator">EmbeddingBankObjectPopulator (class in zensols.propbankdb.embedpop)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.embedgen.EmbeddingGenerator">EmbeddingGenerator (class in zensols.propbankdb.embedgen)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.embedpop.EmbeddingPopulator">EmbeddingPopulator (class in zensols.propbankdb.embedpop)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Example">Example (class in zensols.propbankdb.domain)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.Database.example_persister">example_persister (zensols.propbankdb.db.Database attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.ExamplePersister">ExamplePersister (class in zensols.propbankdb.db)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Roleset.examples">examples (zensols.propbankdb.domain.Roleset attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="F" class="genindex-section">
+  <h2>F</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.embedpop.EmbeddingPopulator.FILE_NAME_OPTION">FILE_NAME_OPTION (zensols.propbankdb.embedpop.EmbeddingPopulator attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.app.Format">Format (class in zensols.propbankdb.app)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.RoleResource.framenet">framenet (zensols.propbankdb.domain.RoleResource attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.load.FramesetParser.frames_dir">frames_dir (zensols.propbankdb.load.FramesetParser attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Frameset">Frameset (class in zensols.propbankdb.domain)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.load.DatabaseLoader.frameset_limit">frameset_limit (zensols.propbankdb.load.DatabaseLoader attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.Database.frameset_persister">frameset_persister (zensols.propbankdb.db.Database attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.load.FramesetParser">FramesetParser (class in zensols.propbankdb.load)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.FramesetPersister">FramesetPersister (class in zensols.propbankdb.db)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Function">Function (class in zensols.propbankdb.domain)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Role.function">function (zensols.propbankdb.domain.Role attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.load.FramesetParser.function_df">function_df (zensols.propbankdb.load.FramesetParser property)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.embedpop.EmbeddingPopulator.function_key_pattern">function_key_pattern (zensols.propbankdb.embedpop.EmbeddingPopulator attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.load.FramesetParser.function_path">function_path (zensols.propbankdb.load.FramesetParser attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.Database.function_persister">function_persister (zensols.propbankdb.db.Database attribute)</a>
+
+        <ul>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.embedpop.EmbeddingPopulator.function_persister">(zensols.propbankdb.embedpop.EmbeddingPopulator attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.embedpop.EmbeddingPopulator.function_to_key">function_to_key() (zensols.propbankdb.embedpop.EmbeddingPopulator method)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.FunctionPersister">FunctionPersister (class in zensols.propbankdb.db)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="G" class="genindex-section">
+  <h2>G</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.FunctionPersister.get">get() (zensols.propbankdb.db.FunctionPersister method)</a>
+
+        <ul>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.RelationPersister.get">(zensols.propbankdb.db.RelationPersister method)</a>
+</li>
+        </ul></li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.FramesetPersister.get_by_file_name">get_by_file_name() (zensols.propbankdb.db.FramesetPersister method)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.BankObjectPersister.get_by_id">get_by_id() (zensols.propbankdb.db.BankObjectPersister method)</a>
+
+        <ul>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.FunctionPersister.get_by_id">(zensols.propbankdb.db.FunctionPersister method)</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.RelationPersister.get_by_id">(zensols.propbankdb.db.RelationPersister method)</a>
+</li>
+        </ul></li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.FunctionPersister.get_by_label">get_by_label() (zensols.propbankdb.db.FunctionPersister method)</a>
+
+        <ul>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.RelationPersister.get_by_label">(zensols.propbankdb.db.RelationPersister method)</a>
+</li>
+        </ul></li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.PredicatePersister.get_by_lemma">get_by_lemma() (zensols.propbankdb.db.PredicatePersister method)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.RolesetPersister.get_by_role_id">get_by_role_id() (zensols.propbankdb.db.RolesetPersister method)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.cli.ApplicationFactory.get_database">get_database() (zensols.propbankdb.cli.ApplicationFactory class method)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.Database.get_frameset">get_frameset() (zensols.propbankdb.db.Database method)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.Database.get_framesets">get_framesets() (zensols.propbankdb.db.Database method)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.embedpop.EmbeddingPopulator.get_metadata_config">get_metadata_config() (zensols.propbankdb.embedpop.EmbeddingPopulator method)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.Database.get_predicate">get_predicate() (zensols.propbankdb.db.Database method)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.Database.get_predicates">get_predicates() (zensols.propbankdb.db.Database method)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.embedpop.EmbeddingPopulator.get_sentence">get_sentence() (zensols.propbankdb.embedpop.EmbeddingPopulator method)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Function.group">group (zensols.propbankdb.domain.Function attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="H" class="genindex-section">
+  <h2>H</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Function.has_description">has_description (zensols.propbankdb.domain.Function property)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="I" class="genindex-section">
+  <h2>I</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Roleset.id">id (zensols.propbankdb.domain.Roleset attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Role.index">index (zensols.propbankdb.domain.Role attribute)</a>
+
+        <ul>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.RolesetId.index">(zensols.propbankdb.domain.RolesetId attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.app.Application.info">info() (zensols.propbankdb.app.Application method)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.InstallerConnectionManager.installer">installer (zensols.propbankdb.db.InstallerConnectionManager attribute)</a>
+
+        <ul>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.load.FramesetParser.installer">(zensols.propbankdb.load.FramesetParser attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.InstallerConnectionManager">InstallerConnectionManager (class in zensols.propbankdb.db)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.RolesetId.is_valid">is_valid (zensols.propbankdb.domain.RolesetId property)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.embedpop.EmbeddingPopulator.is_valid_model_version">is_valid_model_version (zensols.propbankdb.embedpop.EmbeddingPopulator property)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.BankObjectPersister.iterobj">iterobj() (zensols.propbankdb.db.BankObjectPersister method)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="J" class="genindex-section">
+  <h2>J</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.app.Format.json">json (zensols.propbankdb.app.Format attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="L" class="genindex-section">
+  <h2>L</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Function.label">label (zensols.propbankdb.domain.Function attribute)</a>
+
+        <ul>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Relation.label">(zensols.propbankdb.domain.Relation attribute)</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.RolesetId.label">(zensols.propbankdb.domain.RolesetId attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Predicate.lemma">lemma (zensols.propbankdb.domain.Predicate attribute)</a>
+
+        <ul>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.RolesetId.lemma">(zensols.propbankdb.domain.RolesetId attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.dapp.LoadApplication">LoadApplication (class in zensols.propbankdb.dapp)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.dapp.LoadApplication.loader">loader (zensols.propbankdb.dapp.LoadApplication attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="M" class="genindex-section">
+  <h2>M</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.cli.main">main() (in module zensols.propbankdb.cli)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Relation.match">match() (zensols.propbankdb.domain.Relation method)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.embedpop.EmbeddingPopulator.META_FILE">META_FILE (zensols.propbankdb.embedpop.EmbeddingPopulator attribute)</a>
+</li>
+        <li>
+    module
+
+        <ul>
+          <li><a href="api/zensols.propbankdb.html#module-zensols.propbankdb">zensols.propbankdb</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#module-zensols.propbankdb.app">zensols.propbankdb.app</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#module-zensols.propbankdb.cli">zensols.propbankdb.cli</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#module-zensols.propbankdb.dapp">zensols.propbankdb.dapp</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#module-zensols.propbankdb.db">zensols.propbankdb.db</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#module-zensols.propbankdb.domain">zensols.propbankdb.domain</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#module-zensols.propbankdb.embedgen">zensols.propbankdb.embedgen</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#module-zensols.propbankdb.embedpop">zensols.propbankdb.embedpop</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#module-zensols.propbankdb.load">zensols.propbankdb.load</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#module-zensols.propbankdb.pack">zensols.propbankdb.pack</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="N" class="genindex-section">
+  <h2>N</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Example.name">name (zensols.propbankdb.domain.Example attribute)</a>
+
+        <ul>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.RoleLink.name">(zensols.propbankdb.domain.RoleLink attribute)</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Roleset.name">(zensols.propbankdb.domain.Roleset attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Function.NO_DESCRIPTION">NO_DESCRIPTION (zensols.propbankdb.domain.Function attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.RolesetId.normalize">normalize (zensols.propbankdb.domain.RolesetId attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.PartOfSpeech.noun">noun (zensols.propbankdb.domain.PartOfSpeech attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="O" class="genindex-section">
+  <h2>O</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.embedpop.EmbeddingPopulator.object_to_key">object_to_key() (zensols.propbankdb.embedpop.EmbeddingPopulator method)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.embedgen.EmbeddingGenerator.output_decimals">output_decimals (zensols.propbankdb.embedgen.EmbeddingGenerator attribute)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.embedgen.EmbeddingGenerator.output_dir">output_dir (zensols.propbankdb.embedgen.EmbeddingGenerator attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.embedgen.EmbeddingGenerator.output_limit">output_limit (zensols.propbankdb.embedgen.EmbeddingGenerator attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="P" class="genindex-section">
+  <h2>P</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.pack.Packager.pack">pack() (zensols.propbankdb.pack.Packager method)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.dapp.LoadApplication.package">package() (zensols.propbankdb.dapp.LoadApplication method)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.pack.Packager">Packager (class in zensols.propbankdb.pack)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.dapp.LoadApplication.packager">packager (zensols.propbankdb.dapp.LoadApplication attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.load.DatabaseLoader.parser">parser (zensols.propbankdb.load.DatabaseLoader attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Alias.part_of_speech">part_of_speech (zensols.propbankdb.domain.Alias attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.PartOfSpeech">PartOfSpeech (class in zensols.propbankdb.domain)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Frameset.path">path (zensols.propbankdb.domain.Frameset attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.BankObjectPopulator.populate">populate() (zensols.propbankdb.domain.BankObjectPopulator method)</a>
+
+        <ul>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.embedpop.EmbeddingBankObjectPopulator.populate">(zensols.propbankdb.embedpop.EmbeddingBankObjectPopulator method)</a>
+</li>
+        </ul></li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.embedpop.EmbeddingPopulator.populate_relation">populate_relation() (zensols.propbankdb.embedpop.EmbeddingPopulator method)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.embedpop.EmbeddingPopulator.populate_roleset">populate_roleset() (zensols.propbankdb.embedpop.EmbeddingPopulator method)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.embedgen.EmbeddingGenerator.populator">populator (zensols.propbankdb.embedgen.EmbeddingGenerator attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.BankObjectPersister.populators">populators (zensols.propbankdb.db.BankObjectPersister attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Predicate">Predicate (class in zensols.propbankdb.domain)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.app.Application.predicate">predicate() (zensols.propbankdb.app.Application method)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.Database.predicate_persister">predicate_persister (zensols.propbankdb.db.Database attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.Database.predicate_stash">predicate_stash (zensols.propbankdb.db.Database attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.PredicatePersister">PredicatePersister (class in zensols.propbankdb.db)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Frameset.predicates">predicates (zensols.propbankdb.domain.Frameset attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.PartOfSpeech.preposition">preposition (zensols.propbankdb.domain.PartOfSpeech attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.PropBank">PropBank (class in zensols.propbankdb.domain)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Example.propbank">propbank (zensols.propbankdb.domain.Example attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.PropBankArgumentSpan">PropBankArgumentSpan (class in zensols.propbankdb.domain)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="R" class="genindex-section">
+  <h2>R</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Relation.REGEX">REGEX (zensols.propbankdb.domain.Relation attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Relation.regex">regex (zensols.propbankdb.domain.Relation attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Reification">Reification (class in zensols.propbankdb.domain)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Relation.reification">reification (zensols.propbankdb.domain.Relation attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Relation">Relation (class in zensols.propbankdb.domain)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.embedpop.EmbeddingPopulator.relation_key_pattern">relation_key_pattern (zensols.propbankdb.embedpop.EmbeddingPopulator attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.load.DatabaseLoader.relation_loader">relation_loader (zensols.propbankdb.load.DatabaseLoader attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.Database.relation_persister">relation_persister (zensols.propbankdb.db.Database attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.Database.relation_stash">relation_stash (zensols.propbankdb.db.Database attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.embedpop.EmbeddingPopulator.relation_to_key">relation_to_key() (zensols.propbankdb.embedpop.EmbeddingPopulator method)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.load.RelationLoader">RelationLoader (class in zensols.propbankdb.load)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.RelationPersister">RelationPersister (class in zensols.propbankdb.db)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.PropBank.relative_indicies">relative_indicies (zensols.propbankdb.domain.PropBank attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.PropBank.relative_tokens">relative_tokens (zensols.propbankdb.domain.PropBank attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.RoleLink.resource">resource (zensols.propbankdb.domain.RoleLink attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Role">Role (class in zensols.propbankdb.domain)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.embedpop.EmbeddingPopulator.role_key_pattern">role_key_pattern (zensols.propbankdb.embedpop.EmbeddingPopulator attribute)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.Database.role_link_persister">role_link_persister (zensols.propbankdb.db.Database attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Role.role_links">role_links (zensols.propbankdb.domain.Role attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.Database.role_persister">role_persister (zensols.propbankdb.db.Database attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.embedpop.EmbeddingPopulator.role_to_key">role_to_key() (zensols.propbankdb.embedpop.EmbeddingPopulator method)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.RoleLink">RoleLink (class in zensols.propbankdb.domain)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.RoleLinkPersister">RoleLinkPersister (class in zensols.propbankdb.db)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.RolePersister">RolePersister (class in zensols.propbankdb.db)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.RoleResource">RoleResource (class in zensols.propbankdb.domain)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Roleset.roles">roles (zensols.propbankdb.domain.Roleset attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Roleset">Roleset (class in zensols.propbankdb.domain)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.app.Application.roleset">roleset() (zensols.propbankdb.app.Application method)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.embedpop.EmbeddingPopulator.roleset_key_pattern">roleset_key_pattern (zensols.propbankdb.embedpop.EmbeddingPopulator attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.Database.roleset_persister">roleset_persister (zensols.propbankdb.db.Database attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.Database.roleset_stash">roleset_stash (zensols.propbankdb.db.Database attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.embedpop.EmbeddingPopulator.roleset_to_key">roleset_to_key() (zensols.propbankdb.embedpop.EmbeddingPopulator method)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.RolesetId">RolesetId (class in zensols.propbankdb.domain)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.db.RolesetPersister">RolesetPersister (class in zensols.propbankdb.db)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Predicate.rolesets">rolesets (zensols.propbankdb.domain.Predicate attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="S" class="genindex-section">
+  <h2>S</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.app.Application.search_roleset">search_roleset() (zensols.propbankdb.app.Application method)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.embedpop.EmbeddingPopulator.SENT_TEXT_FILE">SENT_TEXT_FILE (zensols.propbankdb.embedpop.EmbeddingPopulator attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Example.source">source (zensols.propbankdb.domain.Example attribute)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Reification.source_argument">source_argument (zensols.propbankdb.domain.Reification attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.PropBankArgumentSpan.span">span (zensols.propbankdb.domain.PropBankArgumentSpan attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.pack.Packager.stage_dir">stage_dir (zensols.propbankdb.pack.Packager attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="T" class="genindex-section">
+  <h2>T</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Reification.target_argument">target_argument (zensols.propbankdb.domain.Reification attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.app.Format.text">text (zensols.propbankdb.app.Format attribute)</a>
+
+        <ul>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Example.text">(zensols.propbankdb.domain.Example attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.PropBankArgumentSpan.token">token (zensols.propbankdb.domain.PropBankArgumentSpan attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.embedpop.EmbeddingPopulator.torch_config">torch_config (zensols.propbankdb.embedpop.EmbeddingPopulator attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.PropBankArgumentSpan.type">type (zensols.propbankdb.domain.PropBankArgumentSpan attribute)</a>
+
+        <ul>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Relation.type">(zensols.propbankdb.domain.Relation attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="U" class="genindex-section">
+  <h2>U</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Alias.uid">uid (zensols.propbankdb.domain.Alias attribute)</a>
+
+        <ul>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Example.uid">(zensols.propbankdb.domain.Example attribute)</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Frameset.uid">(zensols.propbankdb.domain.Frameset attribute)</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Function.uid">(zensols.propbankdb.domain.Function attribute)</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Predicate.uid">(zensols.propbankdb.domain.Predicate attribute)</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Relation.uid">(zensols.propbankdb.domain.Relation attribute)</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Role.uid">(zensols.propbankdb.domain.Role attribute)</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.RoleLink.uid">(zensols.propbankdb.domain.RoleLink attribute)</a>
+</li>
+          <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Roleset.uid">(zensols.propbankdb.domain.Roleset attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.PartOfSpeech.unknown">unknown (zensols.propbankdb.domain.PartOfSpeech attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.PropBank.UNKONWN_INDEX">UNKONWN_INDEX (zensols.propbankdb.domain.PropBank attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="V" class="genindex-section">
+  <h2>V</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.embedgen.EmbeddingGenerator.vector_dimension">vector_dimension (zensols.propbankdb.embedgen.EmbeddingGenerator property)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.PartOfSpeech.verb">verb (zensols.propbankdb.domain.PartOfSpeech attribute)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.RoleResource.verbnet">verbnet (zensols.propbankdb.domain.RoleResource attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.RoleLink.version">version (zensols.propbankdb.domain.RoleLink attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.embedpop.EmbeddingPopulator.VERSION_OP">VERSION_OP (zensols.propbankdb.embedpop.EmbeddingPopulator attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="W" class="genindex-section">
+  <h2>W</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.Alias.word">word (zensols.propbankdb.domain.Alias attribute)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.embedgen.EmbeddingGenerator.word_piece_doc_factory">word_piece_doc_factory (zensols.propbankdb.embedgen.EmbeddingGenerator attribute)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.domain.RoleLink.write">write() (zensols.propbankdb.domain.RoleLink method)</a>
+</li>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.embedgen.EmbeddingGenerator.write_vectors">write_vectors() (zensols.propbankdb.embedgen.EmbeddingGenerator method)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="X" class="genindex-section">
+  <h2>X</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/zensols.propbankdb.html#zensols.propbankdb.load.FramesetParser.xml_dir">xml_dir (zensols.propbankdb.load.FramesetParser property)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="Z" class="genindex-section">
+  <h2>Z</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    zensols.propbankdb
+
+        <ul>
+          <li><a href="api/zensols.propbankdb.html#module-zensols.propbankdb">module</a>
+</li>
+        </ul></li>
+        <li>
+    zensols.propbankdb.app
+
+        <ul>
+          <li><a href="api/zensols.propbankdb.html#module-zensols.propbankdb.app">module</a>
+</li>
+        </ul></li>
+        <li>
+    zensols.propbankdb.cli
+
+        <ul>
+          <li><a href="api/zensols.propbankdb.html#module-zensols.propbankdb.cli">module</a>
+</li>
+        </ul></li>
+        <li>
+    zensols.propbankdb.dapp
+
+        <ul>
+          <li><a href="api/zensols.propbankdb.html#module-zensols.propbankdb.dapp">module</a>
+</li>
+        </ul></li>
+        <li>
+    zensols.propbankdb.db
+
+        <ul>
+          <li><a href="api/zensols.propbankdb.html#module-zensols.propbankdb.db">module</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    zensols.propbankdb.domain
+
+        <ul>
+          <li><a href="api/zensols.propbankdb.html#module-zensols.propbankdb.domain">module</a>
+</li>
+        </ul></li>
+        <li>
+    zensols.propbankdb.embedgen
+
+        <ul>
+          <li><a href="api/zensols.propbankdb.html#module-zensols.propbankdb.embedgen">module</a>
+</li>
+        </ul></li>
+        <li>
+    zensols.propbankdb.embedpop
+
+        <ul>
+          <li><a href="api/zensols.propbankdb.html#module-zensols.propbankdb.embedpop">module</a>
+</li>
+        </ul></li>
+        <li>
+    zensols.propbankdb.load
+
+        <ul>
+          <li><a href="api/zensols.propbankdb.html#module-zensols.propbankdb.load">module</a>
+</li>
+        </ul></li>
+        <li>
+    zensols.propbankdb.pack
+
+        <ul>
+          <li><a href="api/zensols.propbankdb.html#module-zensols.propbankdb.pack">module</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2025 Paul Landes
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=37f418d5"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    </body>
+</html>
